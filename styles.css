@@ -1,0 +1,291 @@
+:root {
+  --bg-light: #F6F7F9;
+  --bg-dark: #0f1724;
+  --card-light: #fff;
+  --card-dark: #1a1f2b;
+  --text-light: #6B7280;
+  --text-dark: #F2F3F5;
+  --accent-gold: #D9A94A;
+  --accent-teal: #1FA3A3;
+  --transition: 0.3s ease;
+}
+
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+body {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  transition: background-color var(--transition), color var(--transition);
+}
+
+body.dark {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.container { 
+    max-width: 1200px; 
+    margin: 2rem auto; 
+    padding: 0 1rem; }
+
+header {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  margin-bottom: 2rem;
+}
+h1 { 
+    font-size: 2rem; 
+    font-weight: bold; }
+.toggle-mode {
+  background: var(--accent-gold); 
+  border: none; 
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem; 
+  cursor: pointer; 
+  transition: var(--transition);
+}
+.toggle-mode:hover { 
+    opacity: 0.8; 
+}
+
+.task-form {
+  background-color: var(--card-light); 
+  padding: 1rem; 
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+  margin-bottom: 2rem; 
+  transition: var(--transition);
+}
+body.dark .task-form { 
+    background-color: var(--card-dark); 
+}
+
+.task-form input, .task-form select, .task-form textarea, .task-form button {
+  width: 100%; 
+  padding: 0.5rem;
+  margin-top: 0.5rem; 
+  border-radius: 0.5rem; 
+  border: 1px solid #ccc; 
+  transition: var(--transition);
+}
+body.dark .task-form input, body.dark .task-form select, body.dark .task-form textarea {
+  background-color: #2a2f3c; 
+  border: 1px solid #444; 
+  color: var(--text-dark);
+}
+.task-form button {
+  background-color: var(--accent-teal); 
+  color: #fff; 
+  border: none; 
+  cursor: pointer; 
+  margin-top: 1rem;
+}
+.task-form button:hover { 
+    opacity: 0.9; 
+}
+
+.filters { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 1rem; 
+    margin-bottom: 1.5rem; 
+}
+.filters select, .filters input { 
+    padding: 0.5rem; 
+    border-radius: 0.5rem; 
+    border: 1px solid #ccc; 
+    flex: 1; 
+    min-width: 150px; 
+}
+body.dark .filters select, body.dark .filters input { 
+    background-color: #2a2f3c; 
+    border: 1px solid #444; 
+    color: var(--text-dark); }
+
+.task-list {
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+  gap: 1rem;
+}
+.task-card {
+  background-color: var(--card-light); 
+  padding: 1rem; 
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.5rem;
+  position: relative; 
+  opacity: 0; 
+  transform: translateY(-10px); 
+  animation: fadeIn 0.4s forwards; 
+  transition: var(--transition);
+}
+body.dark .task-card { 
+    background-color: var(--card-dark); 
+}
+
+.task-card.completed {
+  opacity: 0.8; 
+  text-decoration: line-through; 
+  transform: scale(1.02);
+  background-color: #e0f7f7; 
+  transition: transform 0.3s ease, 
+  background-color 0.5s ease, 
+  opacity 0.3s ease;
+}
+body.dark .task-card.completed { 
+    background-color: #1f3a3a;
+ }
+.task-card.completed::before {
+  content: "";
+  position: absolute;
+  top: -5px; left: -5px; right: -5px; bottom: -5px;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px var(--accent-teal, #1FA3A3);
+  opacity: 0.4;
+  animation: glowPulse 1s ease-in-out;
+  pointer-events: none; /* FIX: allow clicks on buttons */
+}
+
+
+@keyframes glowPulse {
+  0% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.02); }
+  100% { opacity: 0.4; transform: scale(1); }
+}
+
+.task-card h3 { 
+    font-size: 1.2rem; 
+    font-weight: bold; 
+}
+.task-card p { 
+    font-size: 0.9rem; 
+    color: var(--text-light); 
+}
+body.dark .task-card p { 
+    color: var(--text-dark); 
+}
+
+.task-actions { 
+    display: flex; 
+    justify-content: flex-end; 
+    gap: 0.5rem; 
+    margin-top: 0.5rem; 
+}
+.task-actions button { 
+    border: none; 
+    padding: 0.3rem 0.6rem; 
+    border-radius: 0.5rem; 
+    cursor: pointer; 
+    transition: var(--transition); 
+}
+.complete-btn { 
+    background-color: var(--accent-teal); 
+    color: #fff; 
+}
+.edit-btn { 
+    background-color: #6B7280; 
+    color: #fff; 
+}
+.delete-btn { 
+    background-color: #E53E3E; 
+    color: #fff; 
+}
+.task-actions button:hover { 
+    opacity: 0.85; 
+}
+
+.progress-container { 
+    display: flex; 
+    align-items: center; 
+    gap: 2rem; 
+    margin-bottom: 2rem; 
+    flex-wrap: wrap; 
+}
+.circular-progress { 
+    position: relative; 
+    width: 100px; 
+    height: 100px; 
+}
+.circular-progress svg { 
+    transform: rotate(-90deg); 
+    width:100px; 
+    height:100px; 
+}
+.circular-progress circle { 
+    fill: none; 
+    stroke-width: 10; 
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease; 
+}
+.circular-progress .bg { 
+    stroke: #eee; 
+}
+.circular-progress .progress { 
+    stroke: var(--accent-gold); 
+    stroke-dasharray: 314; 
+    stroke-dashoffset: 314; 
+}
+.circular-progress span { 
+    position: absolute; 
+    top:50%; left:50%; 
+    transform: translate(-50%, -50%); 
+    font-weight:bold; 
+}
+
+.horizontal-progress { 
+    flex:1; 
+    background-color:#ddd; 
+    border-radius:0.5rem; 
+    overflow:hidden; 
+    height:20px; 
+}
+.horizontal-progress .bar { 
+    width:0; 
+    height:100%; 
+    background-color: var(--accent-teal); 
+    transition: width 0.5s ease; 
+}
+
+.stats { 
+    display:flex; 
+    gap:1rem; 
+    flex-wrap:wrap; 
+}
+.stats div { 
+    background-color: var(--card-light); 
+    padding:1rem; 
+    border-radius:1rem; 
+    flex:1; 
+    text-align:center; 
+    box-shadow:0 4px 12px rgba(0,0,0,0.05); 
+    transition: var(--transition); 
+}
+body.dark .stats div { 
+    background-color: var(--card-dark); 
+}
+
+@keyframes fadeIn { to { opacity:1; transform: translateY(0); } }
+.task-card.fadeOut { 
+    animation: fadeOut 0.4s forwards; 
+}
+@keyframes fadeOut { to 
+    { opacity:0; 
+      transform: translateY(-20px); 
+      height:0; 
+      margin:0; 
+      padding:0; } }
+
+@media (max-width: 768px) {
+  .filters { 
+    flex-direction: column; 
+}
+  .progress-container { 
+    flex-direction: column; 
+    align-items:flex-start; }
+}

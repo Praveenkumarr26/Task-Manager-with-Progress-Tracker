@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task Manager</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Task Manager with Progress Tracker</h1>
+    <button class="toggle-mode">Dark/Light</button>
+  </header>
+
+  <form class="task-form" id="taskForm">
+    <input type="text" id="title" placeholder="Task Title *" required>
+    <textarea id="description" placeholder="Description"></textarea>
+    <input type="date" id="dueDate">
+    <select id="priority">
+      <option value="">Select Priority</option>
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+    </select>
+    <input type="text" id="category" placeholder="Category">
+    <button type="submit">Add Task</button>
+  </form>
+
+  <div class="filters">
+    <input type="text" id="search" placeholder="Search tasks...">
+    <select id="filterCategory">
+      <option value="">All Categories</option>
+    </select>
+    <select id="filterPriority">
+      <option value="">All Priorities</option>
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+    </select>
+    <select id="filterStatus">
+      <option value="">All Status</option>
+      <option value="completed">Completed</option>
+      <option value="pending">Pending</option>
+    </select>
+    <select id="sortTasks">
+      <option value="created">Sort by Created</option>
+      <option value="due">Sort by Due Date</option>
+      <option value="priority">Sort by Priority</option>
+    </select>
+  </div>
+
+  <div class="progress-container">
+    <div class="circular-progress">
+      <svg>
+        <circle class="bg" cx="50" cy="50" r="50"></circle>
+        <circle class="progress" cx="50" cy="50" r="50"></circle>
+      </svg>
+      <span id="progressPercent">0%</span>
+    </div>
+    <div class="horizontal-progress">
+      <div class="bar" id="progressBar"></div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div>Total: <span id="totalTasks">0</span></div>
+    <div>Completed: <span id="completedTasks">0</span></div>
+    <div>Due Today: <span id="dueToday">0</span></div>
+    <div>Overdue: <span id="overdueTasks">0</span></div>
+  </div>
+
+  <div class="task-list" id="taskList"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
