@@ -51,7 +51,7 @@
 1. **Clone the repository**:
 
 ```bash
-git clone https://github.com/yourusername/Task-Manager-with-Progress-Tracker.git
+git clone https://github.com/yourusername/FWD-TaskManager-with-ProgressTracker.git
 ```
 
 2. **Open `index.html`** in your preferred browser.
