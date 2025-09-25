@@ -1,4 +1,4 @@
-# Task-Tracker
+# Task-Manager-with-Project-Tracker
 
 **Task-Manager** is a clean, modern, and user-friendly single-page Task Manager built with **HTML, CSS, and vanilla JavaScript**. Designed with a clean and minimal look, it allows users to **add, edit, complete, delete, and organize tasks**, while tracking progress in a visually engaging way.
 
