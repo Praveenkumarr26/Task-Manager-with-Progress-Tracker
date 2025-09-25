@@ -44,8 +44,6 @@
 * Soft neutral backgrounds: `#F6F7F9`, `#F2F3F5`
 * Light gray text: `#6B7280`, `#9AA0A6`
 
-*(Purple is intentionally avoided for a modern, premium feel.)*
-
 ---
 
 ## Installation & Usage
