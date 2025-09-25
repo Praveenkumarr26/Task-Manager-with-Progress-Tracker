@@ -53,7 +53,7 @@
 1. **Clone the repository**:
 
 ```bash
-git clone https://github.com/yourusername/TaskAura.git
+git clone https://github.com/yourusername/Task-Manager-with-Progress-Tracker.git
 ```
 
 2. **Open `index.html`** in your preferred browser.
