@@ -112,7 +112,7 @@ This project is open-source and available under the **MIT License**.
 ## Demo Screenshot
 
 <img width="1490" height="832" alt="Screenshot 2025-09-25 235759" src="https://github.com/user-attachments/assets/5a032858-03c8-4f18-9c38-48681beefa9e" />
-<img width="1528"<img width="1490" height="832" alt="Screenshot 2025-09-25 235759" src="https://github.com/user-attachments/assets/18e87dd8-62bf-43c3-be87-050bd841f0d9" />
+<img width="1528" height="840" alt="Screenshot 2025-09-25 235822" src="https://github.com/user-attachments/assets/41f27bc4-c7c6-41df-878e-4c6ed05b1d9e" />
 
 ---
 
